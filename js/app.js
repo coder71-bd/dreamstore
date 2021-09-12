@@ -29,10 +29,18 @@ const showProducts = (products) => {
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
+
+  // updated total added products
+  document.getElementById('total-Products').innerText = count;
+
+  //update price
   updatePrice('price', price);
 
+  //update tax and delivery charge
   updateTaxAndCharge();
-  document.getElementById('total-Products').innerText = count;
+
+  //upadate total
+  updateTotal();
 };
 
 const getInputValue = (id) => {
