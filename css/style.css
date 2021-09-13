@@ -90,6 +90,7 @@ main {
   padding: 10px;
   position: fixed;
   right: 0;
+  border: 1px solid blue;
   border-radius: 23px;
   background: #011827;
   color: #fff;

@@ -156,11 +156,7 @@ const updatePrice = (id, value) => {
 
 /* UPDATE DELIVERY CHARGE AND TAX IN UI */
 const setInnerText = (id, value) => {
-  if (id === 'delivery-charge') {
-    document.getElementById(id).innerText = value;
-  } else {
-    document.getElementById(id).innerText = value.toFixed(2);
-  }
+  document.getElementById(id).innerText = value.toFixed(2);
 };
 
 /* DELIVERY CHARGE AND TOTAL TAX UPDATER */
