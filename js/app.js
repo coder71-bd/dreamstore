@@ -23,11 +23,10 @@ const showProducts = (products) => {
     const singleItemURL = `https://fakestoreapi.com/products/${product.id}`;
     const image = product.image;
     const div = document.createElement('div');
-    div.classList.add('product');
+    div.classList.add('single-product', 'my-3');
     div.innerHTML = `
-    <div class="single-product mx-auto mt-3">
       <div class="single-product__img d-flex justify-content-center">
-        <img class="p-3" src="${image}" alt="${product.title}" height="300px" width="80%"/>
+        <img class="py-3" src="${image}" alt="${product.title}" height="300px" width="80%"/>
       </div>
 
       <div class="p-3">

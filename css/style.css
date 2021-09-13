@@ -1,5 +1,5 @@
 body {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   font-family: 'Montserrat', sans-serif;
   background-color: #111827 !important;
 }
@@ -34,15 +34,19 @@ body {
   box-shadow: 5px 0px 11px 1px #3c079e;
 }
 
+main {
+  display: flex;
+  width: 100%;
+}
+
+.product-container {
+  width: calc(100% - 350px);
+}
+
 #all-products {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* border: 1px solid black; */
-  text-align: center;
-  width: 100%;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  justify-content: space-evenly;
 }
 
 .single-product {
@@ -51,7 +55,8 @@ body {
   border-radius: 25px;
   color: #fff;
   box-shadow: -25px -25px 49px #0f1520, 25px 25px 49px #1d273b;
-  transition: 0.6s;
+  border: 1px solid yellow;
+  transition: 0.3s;
 }
 
 .single-product:hover {
@@ -65,43 +70,62 @@ body {
   box-shadow: inset 21px 21px 42px #0b0f17, inset -21px -21px 42px #212d44;
 }
 
+.cart-container {
+  width: 25%;
+}
+
 .cart {
   width: 350px;
   padding: 10px;
-  margin-right: 30px;
   position: fixed;
+  right: 0;
   border-radius: 23px;
   background: #011827;
   color: #fff;
   box-shadow: 20px 20px 40px #010f18, -20px -20px 40px #012136;
 }
 
-.cart-main {
-  padding-right: 30px;
-}
+@media screen and (max-width: 768px) {
+  .product-container {
+    width: calc(100% - 300px);
+  }
 
-@media only screen and (max-width: 768px) {
-  #all-products {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+  .single-product {
+    width: 18rem;
   }
   .cart {
     width: 300px;
-    /* border: 1px solid green; */
-    padding: 10px;
-    box-shadow: 10px 10px 20px gray;
-    border-radius: 5px;
-    margin-right: 30px;
-    position: fixed;
-  }
-  .cart-main {
-    padding-right: 10px;
   }
 }
 
-@media only screen and (max-width: 468px) {
-  #all-products {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+@media screen and (max-width: 600px) {
+  .product-container {
+    width: calc(100% - 200px);
+  }
+  .single-product {
+    width: 15rem;
+  }
+  .cart {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 468px) {
+  .product-container {
+    width: 80%;
+  }
+  .single-product {
+    width: 12rem;
+
+    margin-left: 20px;
+  }
+  .cart {
+    width: 150px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .cart {
+    position: fixed;
+    right: unset;
   }
 }
