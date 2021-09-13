@@ -40,6 +40,7 @@
             HEADER
     ******************** -->
     <header class="mt-5 mb-3 px-3">
+      <!-- search box -->
       <section class="search-box input-group mx-auto">
         <!-- search field -->
         <input
@@ -50,6 +51,7 @@
         />
         <!-- search button -->
         <button
+          onclick="loadProductsByCategory()"
           type="button"
           class="search-button"
           data-toggle="button"
@@ -59,6 +61,12 @@
           Search
         </button>
       </section>
+
+      <!-- error message -->
+      <h3
+        id="error"
+        class="text-white fw-bold fst-italic text-center mt-3"
+      ></h3>
     </header>
 
     <!-- ******************** 

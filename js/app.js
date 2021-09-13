@@ -1,12 +1,27 @@
 /* LOAD THE PRODUCTS FORM API */
-const loadProducts = () => {
-  const url = `https://fakestoreapi.com/products`;
+const loadProducts = (url = 'https://fakestoreapi.com/products') => {
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
 };
 
 loadProducts();
+
+/* LOAD PRODUCT BY CATEGORY FORM THE API AND SHOW IN UI */
+const loadProductsByCategory = () => {
+  document.getElementById('all-products').innerHTML = '';
+  document.getElementById('error').innerText = '';
+  const category = document.getElementById('input-field').value;
+  if (category === '') {
+    document.getElementById('error').innerText =
+      'Please specify something to search';
+    return;
+  }
+  const URL = `https://fakestoreapi.com/products/category/${category}`;
+
+  loadProducts(URL);
+  document.getElementById('input-field').value = '';
+};
 
 /* SHOW THE CARD IMAGE */
 const showCardImg = (img, title) => {
@@ -58,6 +73,11 @@ const showCardInfo = (title, category, rate, count, price) => {
 
 /* SHOW ALL PRODUCTS IN UI */
 const showProducts = (products) => {
+  if (products.length === 0) {
+    document.getElementById('error').innerText =
+      'Sorry! Not Found. Try something else';
+    return;
+  }
   const allProducts = products.map((pd) => pd);
 
   allProducts.forEach((product) => {
