@@ -49,8 +49,6 @@
           data-toggle="button"
           aria-pressed="false"
           autocomplete="off"
-          id="search-btn"
-          onclick="loadProducts()"
         >
           Search
         </button>
@@ -61,56 +59,52 @@
       <div class="row">
         <!-- products section -->
         <section class="col-lg-9 col-md-9 col-sm-7">
-          <div id="all-products" class=""></div>
+          <div id="all-products"></div>
         </section>
 
         <!-- cart section -->
-        <section class="col-lg-3 col-md-3 col-sm-5 cart-main d-none">
-          <div class="cart" id="my-cart">
-            <table class="table">
+        <section class="col-lg-3 col-md-3 col-sm-5 cart-main">
+          <!-- cart -->
+          <div class="cart">
+            <!-- cart info table -->
+            <table class="table" style="color: #fff">
+              <!-- tabel head -->
               <thead>
                 <h1>My-Cart</h1>
                 <tr>
                   <th scope="col"></th>
                   <th scope="col"></th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
                 </tr>
               </thead>
+
+              <!-- table body -->
               <tbody>
                 <tr>
                   <th>Total Added-Products:</th>
                   <td id="total-Products">0</td>
-                  <td></td>
-                  <td></td>
                 </tr>
                 <tr>
                   <th>Price:</th>
                   <td>$ <span id="price">0</span></td>
-                  <td></td>
-                  <td></td>
                 </tr>
                 <tr>
                   <th>Delivery-Charge:</th>
                   <td>$ <span id="delivery-charge">20</span></td>
-                  <td></td>
-                  <td></td>
                 </tr>
                 <tr>
                   <th>Total-Tax:</th>
                   <td>$ <span id="total-tax">0</span></td>
-                  <td></td>
-                  <td></td>
                 </tr>
                 <tr>
                   <th scope="row">Total</th>
                   <td colspan="2">$ <span id="total">0</span></td>
-                  <td></td>
                 </tr>
               </tbody>
             </table>
-            <div class="parces text-center">
-              <button class="btn btn-primary text-center">Buy Now</button>
+
+            <!-- buy now button -->
+            <div class="text-center">
+              <button class="btn btn-primary">Buy Now</button>
             </div>
           </div>
         </section>

@@ -25,20 +25,22 @@ const showProducts = (products) => {
     const div = document.createElement('div');
     div.classList.add('product');
     div.innerHTML = `
-    <div class="single-product">
-      <div>
-        <img class="product-image" src=${image}></img>
+    <div class="single-product mx-auto mt-3">
+      <div class="single-product__img d-flex justify-content-center">
+        <img class="p-3" src="${image}" alt="${product.title}" height="300px" width="80%"/>
       </div>
 
-      <h3>${product.title}</h3>
-      <p>Category: ${product.category}</p>
-      <p>total Rating: ${rate}</p>
-      <p>${count} people rated</p>
-      <h2>Price: $ ${product.price}</h2>
+      <div class="p-3">
+        <h4>${product.title}</h4>
+        <p>Category: ${product.category}</p>
+        <p>Rating: <strong>${rate}</strong></p>
+        <p>Rated by <strong>${count}</strong> users</p>
+        <h3>Price: $ ${product.price}</h3>
 
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
+        <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
 
-      <button onclick="loadSingleProduct('${singleItemURL}')" id="details-btn" class="btn btn-danger">Details</button></div>
+        <button onclick="loadSingleProduct('${singleItemURL}')" id="details-btn" class="btn btn-danger ms-2">Details</button>
+      </div>
       `;
     document.getElementById('all-products').appendChild(div);
   }
