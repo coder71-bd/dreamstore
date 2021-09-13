@@ -17,13 +17,43 @@ const showCardImg = (img, title) => {
   `;
 };
 
+/* SHOW RATING WITH ICON */
+const showRatingWithIcon = (rate) => {
+  if (!rate) {
+    return '';
+  }
+
+  const starNumber = Math.round(rate);
+  const starsArr = [];
+
+  //yellow stars
+  for (let i = 0; i < starNumber; i++) {
+    starsArr.push(
+      `<span class="material-icons" style="color: yellow">star_rate</span>`
+    );
+  }
+
+  //gray stars
+  for (let i = 0; i < 5 - starNumber; i++) {
+    starsArr.push(
+      `<span class="material-icons" style="color: gray">star_rate</span>`
+    );
+  }
+
+  const stars = starsArr.join('');
+
+  return `
+    <p class="d-flex align-items-center"><strong class="me-2">Rating: ${rate}</strong> ${stars}</p>
+  `;
+};
+
 /* SHOW THE CARD INFO */
 const showCardInfo = (title, category, rate, count, price) => {
-  return `<h4>${title}</h4>
-  <p>Category: ${category}</p>
-  <p>Rating: <strong>${rate}</strong></p>
-  <p>Rated by <strong>${count}</strong> users</p>
-  <h3 class="mb-3">Price: $ ${price}</h3>`;
+  return `<h4>${title ? title : ''}</h4>
+  <p>Category: ${category ? category : 'all'}</p>
+  ${showRatingWithIcon(rate)}
+  <p>Rated by <strong>${count ? count : 0}</strong> users</p>
+  <h3 class="mb-3">Price: $ ${price ? price : 'coming soon'}</h3>`;
 };
 
 /* SHOW ALL PRODUCTS IN UI */
@@ -33,9 +63,8 @@ const showProducts = (products) => {
   allProducts.forEach((product) => {
     const {
       rating: { rate, count },
+      image,
     } = product;
-
-    const image = product.image;
 
     // create an element to store the card info
     const div = document.createElement('div');
