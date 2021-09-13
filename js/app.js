@@ -26,7 +26,7 @@ const showCardInfo = (title, category, rate, count, price) => {
   <h3 class="mb-3">Price: $ ${price}</h3>`;
 };
 
-// show all product in UI
+/* SHOW ALL PRODUCTS IN UI */
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
 
@@ -37,6 +37,7 @@ const showProducts = (products) => {
 
     const image = product.image;
 
+    // create an element to store the card info
     const div = document.createElement('div');
     div.classList.add('single-product', 'my-3');
 
