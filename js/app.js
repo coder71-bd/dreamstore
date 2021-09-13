@@ -4,12 +4,14 @@ const loadProducts = () => {
     .then((response) => response.json())
     .then((data) => showProducts(data));
 };
+
 loadProducts();
 
-// const loadRating = (url) => {
-//   fetch(url)
-//     .then(json => )
-// }
+const loadSingleProduct = (url) => {
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+};
 
 // show all product in UI
 const showProducts = (products) => {
@@ -18,22 +20,25 @@ const showProducts = (products) => {
     const {
       rating: { rate, count },
     } = product;
-    // const singleItemURL = `https://fakestoreapi.com/products/${product.id}`
-    // loadRating(singleItemURL)
+    const singleItemURL = `https://fakestoreapi.com/products/${product.id}`;
     const image = product.image;
     const div = document.createElement('div');
     div.classList.add('product');
-    div.innerHTML = `<div class="single-product">
+    div.innerHTML = `
+    <div class="single-product">
       <div>
-    <img class="product-image" src=${image}></img>
+        <img class="product-image" src=${image}></img>
       </div>
+
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
       <p>total Rating: ${rate}</p>
       <p>${count} people rated</p>
       <h2>Price: $ ${product.price}</h2>
+
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+
+      <button onclick="loadSingleProduct('${singleItemURL}')" id="details-btn" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById('all-products').appendChild(div);
   }
